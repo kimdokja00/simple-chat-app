@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A minimal real-time chat with public rooms, private rooms, and random matching." />
+    <title>Chatter — real-time chat</title>
+    <script>
+      // Apply the saved theme before first paint so there is no flash.
+      (function () {
+        var theme = "light";
+        try {
+          var stored = localStorage.getItem("chatter-theme");
+          if (stored === "light" || stored === "dark") {
+            theme = stored;
+          } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        } catch (error) {
+          // localStorage can be unavailable; fall back to light.
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
