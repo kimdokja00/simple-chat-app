@@ -1,5 +1,13 @@
 # Chatter
 
+> Instant, anonymous, temporary conversations — no sign-up required.
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
 A minimal real-time chat app with:
 
 - **Public chat** — one shared room for everyone online.
@@ -7,17 +15,17 @@ A minimal real-time chat app with:
 - **Random chat** — match one-on-one with a waiting stranger, with **Next** and **Disconnect**.
 - **Temporary by design** — no accounts, no database, no browser storage. Everything is kept in server memory and disappears on restart.
 
-Built with React + Vite on the frontend and Node.js + Express + Socket.IO on the backend.
+## 🚀 Live Demo
 
-## Live Demo
+**[https://simple-chat-app-ruby.vercel.app/](https://simple-chat-app-ruby.vercel.app/)**
 
-🚀 **[https://simple-chat-app-ruby.vercel.app/](https://simple-chat-app-ruby.vercel.app/)**
+## 🛠 Getting Started
 
-## Requirements
+### Requirements
 
 Node.js 18 or newer and npm.
 
-## Run locally
+### Run locally
 
 ```bash
 npm install
@@ -35,7 +43,7 @@ npm run dev:client
 
 Open **http://localhost:5173** in two browser windows to test real-time delivery. The Vite dev server proxies `/socket.io` to the backend.
 
-## Production-style run (single server)
+### Production-style run (single server)
 
 ```bash
 npm run build
@@ -44,7 +52,7 @@ npm start
 
 Open **http://localhost:3001**. When `client/dist` exists, Express serves the built frontend alongside Socket.IO.
 
-## Tests
+## 🧪 Tests
 
 ```bash
 npm test
@@ -52,7 +60,7 @@ npm test
 
 The smoke test starts a throwaway server, connects several independent Socket.IO clients, and checks public delivery, private-room isolation, invalid room codes, random matching, **Next**, **Disconnect**, nickname/message validation, rate limiting, and cleanup after disconnects.
 
-## Configuration
+## ⚙️ Configuration
 
 | Variable        | Default                                             | Purpose                               |
 | --------------- | --------------------------------------------------- | ------------------------------------- |
@@ -61,7 +69,7 @@ The smoke test starts a throwaway server, connects several independent Socket.IO
 
 Example: `PORT=8080 CLIENT_ORIGIN=https://chat.example.com npm start`.
 
-## Limits and behavior
+## 📏 Limits and behavior
 
 - Nicknames: 2–16 characters, letters/numbers/spaces and `. _ - '`.
 - Messages: 1–500 characters, trimmed, rendered strictly as text.
@@ -71,7 +79,7 @@ Example: `PORT=8080 CLIENT_ORIGIN=https://chat.example.com npm start`.
 - A user is in exactly one room at a time (public, private, or random).
 - Reconnecting creates a new in-memory session and returns you to the lobby.
 
-## Project structure
+## 📁 Project structure
 
 ```
 .
@@ -85,6 +93,14 @@ Example: `PORT=8080 CLIENT_ORIGIN=https://chat.example.com npm start`.
 └── package.json            npm workspaces + root scripts
 ```
 
-## Notes
+## ⚠️ Caveats
 
 This is intentionally small and built for friendly, temporary conversations. It has no authentication or moderation, and all state is held by one Node process — restarting the server clears messages and rooms. Do not run it as an internet-facing service without adding the operational and security features you need.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request for bug fixes, improvements, or new features.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
