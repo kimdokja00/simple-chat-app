@@ -9,6 +9,10 @@ A minimal real-time chat app with:
 
 Built with React + Vite on the frontend and Node.js + Express + Socket.IO on the backend.
 
+## Live Demo
+
+🚀 **[https://simple-chat-app-ruby.vercel.app/](https://simple-chat-app-ruby.vercel.app/)**
+
 ## Requirements
 
 Node.js 18 or newer and npm.
