@@ -105,7 +105,10 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
-    const socket = io({ path: "/socket.io" });
+    // In production VITE_SERVER_URL points to the Railway backend.
+    // Locally it is undefined and io() falls back to same-origin (Vite proxy).
+    const serverUrl = import.meta.env.VITE_SERVER_URL || "";
+    const socket = io(serverUrl, { path: "/socket.io" });
     socketRef.current = socket;
 
     const addMessage = (message) =>
